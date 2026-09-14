@@ -1,0 +1,12 @@
+# 根目录下临时生成的模板（正式模板在 template/ 下）
+/论文模板.docx
+
+# 导出产物
+*.pdf
+*_pages/
+
+# 临时
+__pycache__/
+*.pyc
+~$*
+.DS_Store

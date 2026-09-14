@@ -1,0 +1,10 @@
+# 依赖
+python-docx>=1.1.0
+lxml>=5.0
+pillow>=10.0
+numpy>=1.26
+
+# 可选：用本机 Word 刷新目录域 / 导出 PDF（需已安装 Microsoft Word）
+pywin32>=306
+# 可选：把导出的 PDF 逐页栅格化以便比对
+pymupdf>=1.24

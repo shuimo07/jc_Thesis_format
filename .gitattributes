@@ -1,0 +1,9 @@
+# 文本文件统一以 LF 存入仓库，避免跨平台 checkout 时字节不一致
+* text=auto eol=lf
+
+# 二进制文件不做任何换行/编码转换
+*.docx binary
+*.doc binary
+*.pdf binary
+*.png binary
+*.jpg binary
