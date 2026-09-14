@@ -11,13 +11,43 @@
 ## 目录结构
 
 ```
-docs/format-spec.md              完整格式规范（含从截图反推参数的换算口径）
-scripts/jc_thesis_format.py      排版工具库：把规范固化成可调用的 python-docx 原语
-scripts/build_template.py        生成空白模板 论文模板.docx（只有格式，无内容）
-scripts/measure_reference.py     从参考论文的页面截图反推版面参数
-scripts/refresh_and_export.py    用本机 Word 刷新目录域 + 导出 PDF + 栅格化逐页校验
+docs/format-checklist.md          ★ 格式修改清单：要改的地方全集（逐处可勾选）
+docs/notes-and-pitfalls.md        ★ 注意事项与踩坑记录 + 症状对照表
+docs/format-spec.md               完整格式规范（含从截图反推参数的换算口径）
+reference/pages/p01..p57.png       57 页参考框架图（按论文页序归档）
+reference/README.md                参考图逐页索引：每页是什么 + 该对照哪些格式点
+reference/source-map.tsv           顺序号 → 原文件名 → 字节数 → SHA256
+scripts/jc_thesis_format.py       排版工具库：把规范固化成可调用的 python-docx 原语
+scripts/build_template.py         生成空白模板 论文模板.docx（只有格式，无内容）
+scripts/measure_reference.py      从参考页面截图反推版面参数
+scripts/refresh_and_export.py     用本机 Word 刷新目录域 + 导出 PDF + 栅格化逐页校验
+template/论文模板.docx             生成好的空白模板（10 页）
 requirements.txt
 ```
+
+## 从哪开始看
+
+| 你想做什么 | 看这个 |
+|---|---|
+| 把手上这篇论文的格式改对 | [`docs/format-checklist.md`](docs/format-checklist.md) |
+| 想先知道哪里容易踩坑 | [`docs/notes-and-pitfalls.md`](docs/notes-and-pitfalls.md) |
+| 想核对某页的标准长什么样 | [`reference/README.md`](reference/README.md) |
+| 想直接拿一份格式正确的模板 | [`template/论文模板.docx`](template/论文模板.docx) |
+| 想用脚本批量排 | [`docs/format-spec.md`](docs/format-spec.md) + `scripts/` |
+
+## 参考框架图
+
+`reference/pages/` 下是 57 页参考截图，按论文实际页序排列：
+
+```
+p01             封面（不编号）
+p02 – p07       学术诚信声明 I / 版权使用授权书 II / 摘要 III / Abstract IV / 目录 V,VI
+p08 – p55       正文 1 – 48（含图、三线表、插图、结论）
+p56             参考文献
+p57             致谢
+```
+
+**正文页码 = 顺序号 − 7**。逐页说明见 [`reference/README.md`](reference/README.md)。
 
 ## 快速开始
 
@@ -79,6 +109,9 @@ python scripts/refresh_and_export.py 论文.docx --raster
 4. **`w:pPr` 和 `w:tblBorders` 的子元素顺序是法定的**，插错位置 Word 报文档损坏。
 5. **表头下那条线画在单元格 `w:tcBorders/w:bottom` 上**，不是表格级 `insideH`。
 6. **改完一定要渲染校验**，只读 XML 发现不了下划线被吞、表格线错行这类问题。
+
+> 展开版（每个坑的原因、正确做法、以及「出现什么症状去哪一节」的对照表）见
+> [`docs/notes-and-pitfalls.md`](docs/notes-and-pitfalls.md)。
 
 ## 依赖
 
