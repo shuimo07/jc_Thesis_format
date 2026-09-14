@@ -14,6 +14,7 @@
 docs/format-checklist.md          ★ 格式修改清单：要改的地方全集（逐处可勾选）
 docs/notes-and-pitfalls.md        ★ 注意事项与踩坑记录 + 症状对照表
 docs/format-spec.md               完整格式规范（含从截图反推参数的换算口径）
+prompts/thesis-writing-rules.md   行文与引用规范提示词（续写/润色论文时贴给 AI）
 reference/pages/p01..p57.png       57 页参考框架图（按论文页序归档）
 reference/README.md                参考图逐页索引：每页是什么 + 该对照哪些格式点
 reference/source-map.tsv           顺序号 → 原文件名 → 字节数 → SHA256
@@ -32,6 +33,7 @@ requirements.txt
 | 把手上这篇论文的格式改对 | [`docs/format-checklist.md`](docs/format-checklist.md) |
 | 想先知道哪里容易踩坑 | [`docs/notes-and-pitfalls.md`](docs/notes-and-pitfalls.md) |
 | 想核对某页的标准长什么样 | [`reference/README.md`](reference/README.md) |
+| 想让 AI 按既定行文规范续写/润色 | [`prompts/thesis-writing-rules.md`](prompts/thesis-writing-rules.md) |
 | 想直接拿一份格式正确的模板 | [`template/论文模板.docx`](template/论文模板.docx) |
 | 想用脚本批量排 | [`docs/format-spec.md`](docs/format-spec.md) + `scripts/` |
 
